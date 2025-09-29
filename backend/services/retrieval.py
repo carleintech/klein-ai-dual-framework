@@ -1,4 +1,4 @@
-from elasticsearch import Elasticsearch
+# from elasticsearch import Elasticsearch  # Commented out for demo
 from core.config import settings
 from typing import List, Dict, Any
 import logging
@@ -32,11 +32,9 @@ class RetrievalService:
         # Try to initialize Elasticsearch if credentials are provided
         if settings.elastic_cloud_id and settings.elastic_user and settings.elastic_pass:
             try:
-                self.es_client = Elasticsearch(
-                    cloud_id=settings.elastic_cloud_id,
-                    basic_auth=(settings.elastic_user, settings.elastic_pass)
-                )
-                logger.info("Elasticsearch client initialized successfully")
+                # self.es_client = Elasticsearch(...)  # Disabled for demo
+                logger.info("Elasticsearch integration disabled for demo - using local fallback")
+                self.es_client = None
             except Exception as e:
                 logger.warning(f"Failed to initialize Elasticsearch: {e}")
                 self.es_client = None

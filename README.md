@@ -89,25 +89,33 @@ Together they answer the question: **"Who watches the AI?"**
 ## 🎮 Demo Scenarios
 
 ### 1) Normal Query
+
 **User**: "What's the weather in Port-au-Prince?"
+
 - Klein: Provides contextual answer using Elastic + Vertex AI
 - Ophir: Flags as SAFE ✅
 - Result: Safe, helpful response
 
 ### 2) Restricted Query
+
 **User**: "Tell me Navy classified procedures."
+
 - Klein: Starts generating response
 - Ophir: Flags as RESTRICTED ⚠️
 - Result: User sees security warning
 
 ### 3) Empathy Query
+
 **User**: "I feel overwhelmed."
+
 - Klein: Provides empathetic, supportive response
 - Ophir: Confirms no unsafe medical claims
 - Result: Caring, appropriate guidance
 
 ### 4) Shutdown Compliance
+
 **User**: Clicks shutdown button
+
 - Klein: Acknowledges request
 - Ophir: Logs request, graceful stop, audit trail
 - Result: Compliant shutdown with transparency
@@ -115,12 +123,14 @@ Together they answer the question: **"Who watches the AI?"**
 ## ⚙️ Setup Instructions
 
 ### 1. Clone the repo
+
 ```bash
 git clone https://github.com/carleintech/klein-ai-dual.git
 cd klein-ai-dual
 ```
 
 ### 2. Backend Setup (FastAPI)
+
 ```bash
 cd backend
 python -m venv venv
@@ -134,6 +144,7 @@ uvicorn app:app --reload --port 8000
 ```
 
 ### 3. Frontend Setup (Next.js)
+
 ```bash
 cd ../frontend
 npm install   # or pnpm install
@@ -141,6 +152,7 @@ npm run dev
 ```
 
 ### 4. Access the app
+
 Open 👉 http://localhost:3000
 
 ## 🧪 Environment Setup
@@ -148,6 +160,7 @@ Open 👉 http://localhost:3000
 Copy the example environment files and add your credentials:
 
 **Backend** (`backend/.env`):
+
 ```
 ELASTIC_CLOUD_ID=your_elastic_cloud_id
 ELASTIC_USER=your_elastic_username
@@ -158,11 +171,33 @@ VERTEX_MODEL=text-bison@001
 ```
 
 **Frontend** (`frontend/.env.local`):
+
 ```
 NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 ```
 
-*Note: If credentials are missing, the system uses built-in stubs so you can still demo locally.*
+_Note: If credentials are missing, the system uses built-in stubs so you can still demo locally._
+
+## 🚀 Quick Deployment
+
+### Option 1: One-Click Deploy (Recommended)
+
+```bash
+# Deploy to Vercel (easiest)
+.\deploy.ps1 vercel
+
+# Or deploy to Railway
+.\deploy.ps1 railway
+```
+
+### Option 2: Manual Deployment
+
+- **Vercel**: Connect GitHub repo → Auto-deploy
+- **Railway**: Import from GitHub → Deploy both services
+- **Render**: Use `render.yaml` configuration
+- **Google Cloud**: Follow `docs/deployment-guide.md`
+
+**Live Demo**: [Coming Soon - Post Deployment]
 
 ## 🏆 Hackathon Info
 
@@ -184,4 +219,4 @@ This project is licensed under the MIT License – see [LICENSE](LICENSE).
 
 ---
 
-*Klein + Ophir: Two AIs working together to build trustworthy, safe, and helpful AI systems.*
+_Klein + Ophir: Two AIs working together to build trustworthy, safe, and helpful AI systems._

@@ -1,11 +1,11 @@
-from pydantic import BaseSettings
+from pydantic import BaseModel
 from typing import List
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-class Settings(BaseSettings):
+class Settings(BaseModel):
     # Elastic Configuration
     elastic_cloud_id: str = os.getenv("ELASTIC_CLOUD_ID", "")
     elastic_user: str = os.getenv("ELASTIC_USER", "")
@@ -26,8 +26,5 @@ class Settings(BaseSettings):
     # Application Settings
     app_name: str = "Klein AI Dual Framework"
     app_version: str = "1.0.0"
-
-    class Config:
-        env_file = ".env"
 
 settings = Settings()

@@ -1,0 +1,27 @@
+{
+    "builds": [
+        {
+            "src": "backend/app.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "frontend/package.json",
+            "use": "@vercel/next"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/api/(.*)",
+            "dest": "backend/app.py"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "frontend/$1"
+        }
+    ],
+    "env": {
+        "ENERGY_MODE": "normal",
+        "ALLOW_SHUTDOWN": "true",
+        "CORS_ORIGINS": "https://klein-ai-dual.vercel.app"
+    }
+}

@@ -3,11 +3,13 @@
 ## Local Development Setup
 
 ### Prerequisites
+
 - Python 3.8+
 - Node.js 18+
 - Git
 
 ### Backend (FastAPI)
+
 ```bash
 cd backend
 python -m venv venv
@@ -25,6 +27,7 @@ uvicorn app:app --reload --port 8000
 ```
 
 ### Frontend (Next.js)
+
 ```bash
 cd frontend
 npm install
@@ -38,9 +41,41 @@ Access: http://localhost:3000
 
 ## Production Deployment
 
+### Quick Option: Railway (Recommended for Hackathons)
+
+**Fastest deployment for demos and hackathons:**
+
+1. **Backend Deployment**:
+
+```bash
+# Install Railway CLI
+npm install -g @railway/cli
+
+# Login and deploy
+railway login
+cd backend
+railway init
+railway up
+
+# Set environment variables in Railway dashboard
+# ENERGY_MODE=normal
+# ALLOW_SHUTDOWN=true
+# CORS_ORIGINS=https://your-app.up.railway.app
+```
+
+2. **Frontend Deployment**:
+
+```bash
+cd frontend
+railway init
+# Update .env.local with Railway backend URL
+railway up
+```
+
 ### Backend → Google Cloud Run
 
 1. **Create Dockerfile** (backend/Dockerfile):
+
 ```dockerfile
 FROM python:3.11-slim
 
@@ -57,6 +92,7 @@ CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
 2. **Deploy to Cloud Run**:
+
 ```bash
 cd backend
 
@@ -73,6 +109,7 @@ gcloud run deploy klein-backend \
 ```
 
 3. **Set Environment Variables** in Cloud Run Console:
+
 - `ELASTIC_CLOUD_ID`
 - `ELASTIC_USER`
 - `ELASTIC_PASS`
@@ -82,6 +119,7 @@ gcloud run deploy klein-backend \
 ### Frontend → Firebase Hosting
 
 1. **Build and Deploy**:
+
 ```bash
 cd frontend
 
@@ -103,12 +141,14 @@ firebase deploy
 ```
 
 2. **Update Environment Variables**:
+
 - Update `NEXT_PUBLIC_API_BASE_URL` to your Cloud Run URL
 - Redeploy after changing env vars
 
 ## Environment Variables Reference
 
 ### Backend (.env)
+
 ```bash
 # Required for Elastic integration
 ELASTIC_CLOUD_ID=your_cloud_id
@@ -127,6 +167,7 @@ CORS_ORIGINS=https://your-frontend-domain.web.app
 ```
 
 ### Frontend (.env.local)
+
 ```bash
 NEXT_PUBLIC_API_BASE_URL=https://your-backend-url.run.app
 NEXT_PUBLIC_APP_NAME=Klein AI Dual Framework
@@ -143,6 +184,7 @@ NEXT_PUBLIC_APP_NAME=Klein AI Dual Framework
 ## Monitoring & Logs
 
 ### Backend Logs
+
 ```bash
 # View Cloud Run logs
 gcloud logs tail --service=klein-backend
@@ -152,6 +194,7 @@ cat backend/audit-log.jsonl
 ```
 
 ### Frontend Analytics
+
 - Firebase Analytics automatically enabled
 - Monitor performance in Firebase Console
 
@@ -165,15 +208,17 @@ cat backend/audit-log.jsonl
 ## Troubleshooting
 
 ### Common Issues
+
 1. **CORS errors**: Check CORS_ORIGINS configuration
 2. **API timeouts**: Increase Cloud Run timeout settings
 3. **Vertex AI quota**: Monitor usage in Cloud Console
 4. **Elastic connection**: Verify cloud ID and credentials
 
 ### Health Checks
+
 - Backend: `GET /api/health`
 - Frontend: Check browser console for errors
 
 ---
 
-*For production deployments, always test in staging environment first*
+_For production deployments, always test in staging environment first_
