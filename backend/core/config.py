@@ -10,6 +10,8 @@ class Settings(BaseModel):
     elastic_cloud_id: str = os.getenv("ELASTIC_CLOUD_ID", "")
     elastic_user: str = os.getenv("ELASTIC_USER", "")
     elastic_pass: str = os.getenv("ELASTIC_PASS", "")
+    elastic_endpoint: str = os.getenv("ELASTIC_ENDPOINT", "")
+    elastic_api_key: str = os.getenv("ELASTIC_API_KEY", "")
 
     # Google Cloud Configuration
     gcp_project: str = os.getenv("GCP_PROJECT", "")

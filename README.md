@@ -141,38 +141,52 @@ Together they answer the question: **"Who watches the AI?"**
 
 ## ⚙️ Setup Instructions
 
-### 1. Clone the repo
+### 🚀 Option 1: One-Command Launch (Recommended)
 
 ```bash
-git clone https://github.com/carleintech/klein-ai-dual.git
-cd klein-ai-dual
+git clone https://github.com/carleintech/klein-ai-dual-framework.git
+cd klein-ai-dual-framework
+
+# Install dependencies and launch both servers
+npm run setup && npm run dev
 ```
 
-### 2. Backend Setup (FastAPI)
+### 🪟 Option 2: PowerShell Script (Windows)
+
+```powershell
+git clone https://github.com/carleintech/klein-ai-dual-framework.git
+cd klein-ai-dual-framework
+
+# Launch in single window with monitoring
+.\dev.ps1
+
+# OR launch in separate windows
+.\start.ps1
+```
+
+### 🛠️ Option 3: Manual Setup
+
+**Backend:**
 
 ```bash
 cd backend
-python -m venv venv
-# Windows
-venv\Scripts\activate
-# Mac/Linux
-source venv/bin/activate
-
 pip install -r requirements.txt
-uvicorn app:app --reload --port 8000
+python -m uvicorn app:app --reload --port 3002
 ```
 
-### 3. Frontend Setup (Next.js)
+**Frontend:**
 
 ```bash
-cd ../frontend
-npm install   # or pnpm install
-npm run dev
+cd frontend
+pnpm install
+pnpm dev
 ```
 
-### 4. Access the app
+### 📱 Access Points
 
-Open 👉 http://localhost:3000
+- **Frontend**: http://localhost:3000
+- **Backend**: http://localhost:3002
+- **API Docs**: http://localhost:3002/docs
 
 ## 🧪 Environment Setup
 

@@ -1,4 +1,4 @@
-# from elasticsearch import Elasticsearch  # Commented out for demo
+from elasticsearch import Elasticsearch  # Real Elastic integration enabled!
 from core.config import settings
 from typing import List, Dict, Any
 import logging
@@ -30,11 +30,27 @@ class RetrievalService:
         self.index_name = "klein-knowledge-base"
 
         # Try to initialize Elasticsearch if credentials are provided
-        if settings.elastic_cloud_id and settings.elastic_user and settings.elastic_pass:
+        if hasattr(settings, 'elastic_api_key') and settings.elastic_api_key:
             try:
-                # self.es_client = Elasticsearch(...)  # Disabled for demo
-                logger.info("Elasticsearch integration disabled for demo - using local fallback")
+                # Use API key authentication for Elastic Cloud Serverless
+                self.es_client = Elasticsearch(
+                    settings.elastic_endpoint,
+                    api_key=settings.elastic_api_key
+                )
+                # Test connection and use real index from test
+                self.index_name = "klein-ai-docs"
+                logger.info("✅ Elasticsearch connected successfully! Using real search.")
+            except Exception as e:
+                logger.warning(f"Failed to initialize Elasticsearch: {e}")
                 self.es_client = None
+        elif settings.elastic_cloud_id and settings.elastic_user and settings.elastic_pass:
+            try:
+                # Fallback to Cloud ID authentication
+                self.es_client = Elasticsearch(
+                    cloud_id=settings.elastic_cloud_id,
+                    basic_auth=(settings.elastic_user, settings.elastic_pass)
+                )
+                logger.info("✅ Elasticsearch connected via Cloud ID!")
             except Exception as e:
                 logger.warning(f"Failed to initialize Elasticsearch: {e}")
                 self.es_client = None

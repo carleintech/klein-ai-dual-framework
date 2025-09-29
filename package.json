@@ -1,0 +1,38 @@
+{
+    "name": "klein-ai-dual-framework",
+    "version": "1.0.0",
+    "description": "Klein AI Dual Framework - AI Accelerate Hackathon 2025 Elastic Challenge",
+    "private": true,
+    "scripts": {
+        "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+        "backend": "cd backend && python -m uvicorn app:app --reload --port 3002",
+        "frontend": "cd frontend && pnpm dev",
+        "start": "concurrently \"npm run backend:prod\" \"npm run frontend:prod\"",
+        "backend:prod": "cd backend && python -m uvicorn app:app --host 0.0.0.0 --port 3002",
+        "frontend:prod": "cd frontend && pnpm start",
+        "build": "cd frontend && pnpm build",
+        "install-deps": "cd backend && pip install -r requirements.txt && cd ../frontend && pnpm install",
+        "setup": "npm run install-deps",
+        "test": "cd backend && python test_elastic.py",
+        "lint": "cd frontend && pnpm lint"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/carleintech/klein-ai-dual-framework.git"
+    },
+    "keywords": [
+        "ai",
+        "elasticsearch",
+        "fastapi",
+        "nextjs",
+        "hackathon",
+        "dual-ai",
+        "klein",
+        "ophir"
+    ],
+    "author": "Carl-Einstein Harlein Pierre",
+    "license": "MIT"
+}
