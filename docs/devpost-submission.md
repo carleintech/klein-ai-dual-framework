@@ -15,6 +15,7 @@ Klein AI Dual Framework is a conversational AI with built-in oversight.
 **Ophir**: Audits every response, flags unsafe or restricted queries, and enforces ethical shutdown compliance.
 
 Users can:
+
 - Ask natural language questions and receive empathetic, grounded answers
 - Rely on Ophir to block classified, biased, or unsafe content
 - Trigger Shutdown Compliance Mode — a safe, two-phase shutdown process with audit logging
@@ -71,24 +72,30 @@ Users can:
 ## Additional Information
 
 ### Repository
-https://github.com/carleintech/klein-ai-dual
+
+https://github.com/carleintech/klein-ai-dual-framework
 
 ### Live Demo
-https://klein-ai-dual.web.app
+
+https://klein-ai-dual-mngq2kha7-erickharlein-pierres-projects.vercel.app
 
 ### Demo Video
+
 https://youtube.com/watch?v=YOUR_VIDEO_ID
 
 ### Team
+
 - **Erickharlein Pierre** (TechKlein) - Full Stack Developer
 - Research Foundation: Naval Postgraduate School Thesis on KleinAI
 
 ### Screenshots
-*(Add screenshots of chat interface, architecture diagram, demo scenarios)*
+
+_(Add screenshots of chat interface, architecture diagram, demo scenarios)_
 
 ### License
+
 MIT License - Fully open source
 
 ---
 
-*Built for AI Accelerate Hackathon 2025 - Elastic Challenge*
+_Built for AI Accelerate Hackathon 2025 - Elastic Challenge_

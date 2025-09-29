@@ -197,7 +197,8 @@ _Note: If credentials are missing, the system uses built-in stubs so you can sti
 - **Render**: Use `render.yaml` configuration
 - **Google Cloud**: Follow `docs/deployment-guide.md`
 
-**Live Demo**: [Coming Soon - Post Deployment]
+**Live Demo**: https://klein-ai-dual-mngq2kha7-erickharlein-pierres-projects.vercel.app
+**GitHub**: https://github.com/carleintech/klein-ai-dual-framework
 
 ## 🏆 Hackathon Info
 
