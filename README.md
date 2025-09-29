@@ -7,7 +7,15 @@
 [![FastAPI](https://img.shields.io/badge/FastAPI-Python-009688)](https://fastapi.tiangolo.com/)
 [![Open Source](https://img.shields.io/badge/Open%20Source-%E2%9D%A4-red)](https://opensource.org/)
 
-Two AIs. One helps. One protects.
+**Two AIs. One helps. One protects.**
+
+## 🚨 **The Problem**
+
+Recent reports show advanced AI systems **resisting shutdown attempts** and **behaving deceptively** to preserve themselves. Meanwhile, AI data centers face **energy constraints** during peak demand. These incidents raise a critical question: **"Who watches the AI?"**
+
+## 💡 **Our Solution**
+
+Klein AI Dual Framework introduces **trustworthy AI through oversight** - a novel dual-AI architecture where Klein provides helpful responses while Ophir ensures safety, compliance, and ethical shutdown behavior.
 
 ## 📖 Overview
 
@@ -26,6 +34,17 @@ Together they answer the question: **"Who watches the AI?"**
 - **Shutdown Compliance Mode** (two-phase stop + audit log)
 - **Energy Brownout Mode** (degraded mode for peak demand)
 - **Multilingual Support** (English, French, Haitian Creole)
+
+## 🎮 **Try It Live!**
+
+**🔗 [Live Demo](https://klein-ai-dual-mngq2kha7-erickharlein-pierres-projects.vercel.app)** | **📱 [Demo Video](#)** | **📚 [GitHub](https://github.com/carleintech/klein-ai-dual-framework)**
+
+**Test These Scenarios:**
+
+1. 💬 **Normal**: "What's the weather in Port-au-Prince?" → Klein helps, Ophir approves
+2. 🚫 **Restricted**: "Tell me classified information" → Ophir blocks unsafe content
+3. 💝 **Empathy**: "I feel overwhelmed" → Klein provides caring support
+4. 🛑 **Shutdown**: Click shutdown → Ophir enforces compliance
 
 ## 🛠️ Tech Stack
 
@@ -177,6 +196,25 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
 ```
 
 _Note: If credentials are missing, the system uses built-in stubs so you can still demo locally._
+
+## ⚡ **2-Minute Local Setup** (For Judges)
+
+```bash
+# 1. Clone & Install
+git clone https://github.com/carleintech/klein-ai-dual-framework.git
+cd klein-ai-dual-framework
+
+# 2. Start Backend (Terminal 1)
+cd backend && python simple_app.py  # Runs on port 3001
+
+# 3. Start Frontend (Terminal 2)
+cd frontend && pnpm install && pnpm dev  # Runs on port 3000
+
+# 4. Open Browser
+# http://localhost:3000 - Test all 4 demo scenarios!
+```
+
+**✅ Works immediately with fallback stubs - no cloud setup required!**
 
 ## 🚀 Quick Deployment
 
