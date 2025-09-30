@@ -42,7 +42,15 @@ async def chat_endpoint(request: ChatRequest):
 
     except Exception as e:
         logger.error(f"Chat endpoint error: {e}")
+        # Provide a more specific error response based on the error type
+        if "elastic" in str(e).lower():
+            error_msg = "Klein: I'm having trouble accessing my knowledge base right now, but I can still help you! What's your question about?"
+        elif "vertex" in str(e).lower():
+            error_msg = "Klein: My AI systems are experiencing a brief hiccup, but I'm still here to assist you with your questions!"
+        else:
+            error_msg = "Klein: I encountered a technical issue, but let me try to help you anyway. What would you like to know?"
+
         return ChatResponse(
-            answer="I apologize, but I'm experiencing technical difficulties. Please try again in a moment.",
+            answer=error_msg,
             status="SAFE"
         )
